@@ -1,0 +1,39 @@
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\Bot Application.dll.config
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\Bot Application.dll
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\Bot Application.pdb
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\Autofac.dll
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\Chronic.dll
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\Microsoft.Bot.Builder.Autofac.dll
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\Microsoft.Bot.Builder.dll
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\Microsoft.Bot.Connector.dll
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\Microsoft.IdentityModel.Protocol.Extensions.dll
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\Microsoft.Rest.ClientRuntime.dll
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\Microsoft.WindowsAzure.Configuration.dll
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\Newtonsoft.Json.dll
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\System.Net.Http.Formatting.dll
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\System.Web.Http.dll
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\System.Web.Http.WebHost.dll
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\Autofac.xml
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\Microsoft.Bot.Builder.xml
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\Microsoft.Bot.Builder.Autofac.xml
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\Microsoft.Bot.Connector.xml
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\Microsoft.IdentityModel.Protocol.Extensions.xml
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\Microsoft.WindowsAzure.Configuration.xml
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\Newtonsoft.Json.xml
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\System.Net.Http.Formatting.xml
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\System.Web.Http.xml
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\System.Web.Http.WebHost.xml
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\ar\Microsoft.Bot.Builder.resources.dll
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\cs\Microsoft.Bot.Builder.resources.dll
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\de-dE\Microsoft.Bot.Builder.resources.dll
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\en\Microsoft.Bot.Builder.resources.dll
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\es\Microsoft.Bot.Builder.resources.dll
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\fa\Microsoft.Bot.Builder.resources.dll
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\fr\Microsoft.Bot.Builder.resources.dll
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\ja\Microsoft.Bot.Builder.resources.dll
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\ru\Microsoft.Bot.Builder.resources.dll
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\bin\zh-hans\Microsoft.Bot.Builder.resources.dll
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\obj\Release\Bot Application.dll
+C:\Users\Edmond\Documents\Visual Studio 2017\Projects\TryCatch\TryCatch\obj\Release\Bot Application.pdb
