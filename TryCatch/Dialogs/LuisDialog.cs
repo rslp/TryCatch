@@ -13,12 +13,14 @@ namespace TryCatch.Dialogs
     [Serializable]
     public class LuisDialog : LuisDialog<object>
     {
+        /*
         [LuisIntent("打招呼")]
         public async Task Greeting(IDialogContext context, LuisResult result)
         {
             await context.PostAsync("你好啊，老铁");
             context.Wait(MessageReceived);
-        }
+        }*/
+        /*
         [LuisIntent("询问名字")]
         public async Task Name(IDialogContext context, LuisResult result)
         {
@@ -43,5 +45,20 @@ namespace TryCatch.Dialogs
             await context.PostAsync("老铁，发烧就该吃药，不能胡言乱语啊。");
             context.Wait(MessageReceived);
         }
+        */
+        [LuisIntent("None")]
+        public async Task None(IDialogContext context, LuisResult result)
+        {
+            string question = result.Query;
+            string solution = await QnAMaker.MakeRequest(question);
+
+            if (solution == null)
+            {
+                await context.PostAsync("很抱歉 没能帮您找到答案");
+            }
+            else await context.PostAsync(solution);
+            context.Wait(MessageReceived);
+        }
+
     }
 }
