@@ -534,7 +534,287 @@ namespace TryCatch.Dialogs
             context.Wait(MessageReceived);
         }
 
+        [LuisIntent("查背景")]
+        public async Task CheckBackground(IDialogContext context, LuisResult result)
+        {
+            string question = result.Query;
+            IList<EntityRecommendation> entityl = result.Entities;
 
+            var message = context.MakeMessage();
+
+            foreach (EntityRecommendation example in entityl)
+            {
+                string entity = example.Entity;
+                string type = example.Type;
+
+                if (type != null)
+                {
+                    if (type.Equals("学院"))
+                    {
+                        switch (entity)
+                        {
+                            case "网络技术研究院":
+                                await context.PostAsync("2008年8月，为进一步抓住国际新科技革命为网络领域带来的难得发展机遇，加速提升学校在网络领域中的高新技术自主创新能力和持续竞争力，解决国家重大战略需求，北京邮电大学依托网络与交换技术国家重点实验室成立了网络技术研究院。网络技术研究院拥有信息与通信工程、计算机科学与技术、软件工程3个一级学科，信息安全（自设）、密码学2个二级学科，同时支撑网络与交换技术国家重点实验室及CERNET的建设与运行。");
+                                break;
+                            case "网络教育学院":
+                                await context.PostAsync("北京邮电大学网络教育学院（原函授学院）是北京邮电大学开展成人高等学历教育的专门机构，自 1956 年开办成人高等学历教育至今已有 50 余年的历史。我校成人高等学历教育以服务学生、服务社会为宗旨，以培养技能型、应用型人才为目标，以规范办学、确保质量为理念，形成了面向通信信息领域开展学历教育的办学特色。培养计划紧扣通信信息行业的实际需要，课程内容紧跟通信信息技术的最新发展，教学模式多样，技术手段先进，支持服务完善。经过多年的发展，在通信信息领域的在职学历教育方面保持了领先的优势，形成了良好的口碑，被业内誉为邮电通信行业的黄埔军校。");
+                                break;
+                            case "民族教育学院":
+                                await context.PostAsync("北京邮电大学民族教育学院是由教育部民族教育司于2003年11月25日批准建立的全国高校民族预科教育基地，正式成立于2004年6月4日。成为教育部指定的六所全国少数民族预科教育培养基地之一。");
+                                break;
+                            case "自动化学院":
+                                await context.PostAsync("北京邮电大学自动化学院重点为工业与信息产业培养机械工程及自动化、测控技术、物流工程、自动化等专业的宽口径复合型高级技术人才。");
+                                break;
+                            case "信息与通信工程学院":
+                                await context.PostAsync("北京邮电大学信息与通信工程学院以信息科技为特色，以突出的学科实力和明显的专业优势，在全国信息通信领域享有很高的声誉。重点建设的一级学科“信息与通信工程”是国家级重点学科，也是我校“211工程”和“985优势学科建设平台”重点建设的学科，在2012年学科评估中评为全国第一。学院的学科和专业源自于北京邮电大学1955年建校时创建的有线电工程系和无线电工程系，经过60余年的建设与发展，已经成为北京邮电大学学科实力最突出、专业优势最明显、师资力量最雄厚、历史渊源最深远的学院。");
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    if (type.Equals("机构"))
+                    {
+                        await context.PostAsync("北京邮电大学体育部是在校行政、校党委领导下的行政二级单位，下属教学研究室、后勤管理办公室。体育部在主管校长领导下具体组织全校体育工作，负责制定学校体育工作计划和有关规章制度，定期向领导汇报工作。组织领导体育教学，制定教学计划，开展教学研究活动，搞好体育教学改革。制定体育科研规划，组织领导教师开展科研工作。组织体育部教师的政治学习和业务进修，不断提高全体教职工的思想素质和业务水平。协同学生处、团委、各院系组织领导学生业余体育活动、组织运动队训练和校内外竞赛工作；协助校工会开展教职工业余体育活动。按国家教育部要求，每学年对学生进行《国家学生体质健康标准》的测试工作。做好图书资料的保管，体育器材的购置，维护及运动场地的管理工作，并协同基建部门做好运动场地的规划和建设。");
+                    }
+                }
+            }
+            context.Wait(MessageReceived);
+        }
+
+        [LuisIntent("查特征")]
+        public async Task CheckFeature(IDialogContext context, LuisResult result)
+        {
+            IList<EntityRecommendation> entityl = result.Entities;
+
+            foreach (EntityRecommendation example in entityl)
+            {
+                string entity = example.Entity;
+                string type = example.Type;
+
+                if (type != null)
+                {
+                    if (type.Equals("学院")) {
+                        switch (entity)
+                        {
+                            case "电子工程学院":
+                                await context.PostAsync("无线电、通信微电子、光电子和生物电子");
+                                break;
+                            case "公共管理学院":
+                                await context.PostAsync("信息网络优势");
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    if (type.Equals("项目")) {
+                        switch (entity)
+                        {
+                            case "成人高等学历教育":
+                                await context.PostAsync("面向通信信息领域开展学历教育的办学特色");
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+            }
+            context.Wait(MessageReceived);
+        }
+
+        [LuisIntent("查目标和愿景类")]
+        public async Task TestCheckSchool(IDialogContext context, LuisResult result)
+        {
+            IList<EntityRecommendation> entityl = result.Entities;
+
+            foreach (EntityRecommendation example in entityl)
+            {
+                string entity = example.Entity;
+                string type = example.Type;
+
+                if (type != null)
+                {
+                    if (type.Equals("学院")){
+                        switch (entity)
+                        {
+                            case "继续教育学院":
+                                await context.PostAsync("聚焦泛信息社会的人才培养，打造开放式的终身学习平台！");
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    if (type.Equals("项目"))
+                    {
+                        switch (entity)
+                        {
+                            case "成人高等学历教育":
+                                await context.PostAsync("以培养技能型、应用型人才为目标");
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+            }
+            context.Wait(MessageReceived);
+        }
+        [LuisIntent("查职位")]
+        public async Task CheckPosition(IDialogContext context, LuisResult result)
+        {
+            string question = result.Query;
+
+            if (question.Equals("方滨兴在北邮是什么职位、")){ 
+                await context.PostAsync("网络空间安全院长");
+            }
+            if (question.Equals("杨放春在北邮是什么职位"))
+            {
+                await context.PostAsync("感知技术研究院院长");
+            }
+            /*
+            if (question.Equals("刘志晗在北邮是什么职位"))
+            {
+                await context.PostAsync("");
+            }*/
+
+            if (question.Equals("乔建永在北邮是什么职位、"))
+            {
+                await context.PostAsync("校长");
+            }
+
+            context.Wait(MessageReceived);
+
+
+        }
+        [LuisIntent("查时间")]
+        public async Task CheckTime(IDialogContext context, LuisResult result)
+        {
+            IList<EntityRecommendation> entityl = result.Entities;
+
+            foreach (EntityRecommendation example in entityl)
+            {
+                string entity = example.Entity;
+                string type = example.Type;
+
+                if (type != null)
+                {
+                    if (type.Equals("学院")){
+                        switch (entity)
+                        {
+                            case "网络工程":
+                                await context.PostAsync("四年");
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    if (type.Equals("项目"))
+                    {
+                        switch (entity)
+                        {
+                            case "硕博连读":
+                                await context.PostAsync("五年");
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    if (type.Equals("工种（科研人员、教师等）"))
+                    {
+                        switch (entity)
+                        {
+                            case "研究生":
+                                await context.PostAsync("三年");
+                                break;
+                            case "博士生":
+                                await context.PostAsync("三年");
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+            }
+            context.Wait(MessageReceived);
+        }
+
+        [LuisIntent("查成果")]
+        public async Task CheckAchievements(IDialogContext context, LuisResult result)
+        {
+            IList<EntityRecommendation> entityl = result.Entities;
+
+            foreach (EntityRecommendation example in entityl)
+            {
+                string entity = example.Entity;
+                string type = example.Type;
+
+                if (type != null)
+                {
+                    if (type.Equals("学院")){
+                        switch (entity)
+                        {
+                            case "计算机学院":
+                                await context.PostAsync("近年来获得国家级教学成果二等奖3项，北京市教学成果一等奖7项；获得 2008年全国百篇优秀博士学位论文奖1篇，中国计算机学会优秀博士论文奖2篇");
+                                break;
+                            case "人文学院":
+                                await context.PostAsync("共承担190余项科研项目，其中国家社科基金项目7项，省部级项目42项；在近四年全国大学生英语竞赛中，我校参赛学生共12人获特等奖，52人获一等奖，获奖总人数居北京高校前列。2012年，法学专业学生在北京市大学生模拟法庭竞赛中荣获一等奖");
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    if (type.Equals("工种（科研人员、教师等）"))
+                    {
+                        switch (entity)
+                        {
+                            case "学生":
+                                await context.PostAsync("在近四年全国大学生英语竞赛中，我校参赛学生共12人获特等奖，52人获一等奖，获奖总人数居北京高校前列。2012年，法学专业学生在北京市大学生模拟法庭竞赛中荣获一等奖");
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    if (type.Equals("时间段"))
+                    {
+                        switch (entity)
+                        {
+                            case "历年":
+                                await context.PostAsync("详情请参见:http://sa.bupt.edu.cn/cgzs/kycg.htm");
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+            }
+            context.Wait(MessageReceived);
+        }
+        [LuisIntent("查价值和意义类")]
+        public async Task CheckValueAndSignificance(IDialogContext context, LuisResult result)
+        {
+            IList<EntityRecommendation> entityl = result.Entities;
+
+            foreach (EntityRecommendation example in entityl)
+            {
+                string entity = example.Entity;
+                string type = example.Type;
+
+                if (type != null)
+                {
+                    if (type.Equals("学院")){
+                        switch (entity)
+                        {
+                            case "继续教育学院":
+                                await context.PostAsync("信息时代终生学习的推动者！");
+                                break;
+                            default:
+                                await context.PostAsync("信息时代终生学习的推动者！");
+                                break;
+                        }
+                    }
+                }
+            }
+            context.Wait(MessageReceived);
+        }
 
         [LuisIntent("None")]
         public async Task None(IDialogContext context, LuisResult result)
