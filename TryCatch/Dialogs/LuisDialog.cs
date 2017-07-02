@@ -359,6 +359,183 @@ namespace TryCatch.Dialogs
             context.Wait(MessageReceived);
         }
 
+        [LuisIntent("查排名")]
+        public async Task Ranking(IDialogContext context, LuisResult result)
+        {
+            IList<EntityRecommendation> entity1 = result.Entities;
+            string entity = null;
+            foreach (EntityRecommendation example in entity1)
+            {
+                entity = entity + example.Entity;
+            }
+
+            switch (entity)
+            {
+                case "计 算 机 科 学 与 技 术":
+                    await context.PostAsync("北邮计算机学科位列全国第六，全球第四十！");
+                    break;
+                case "计 算 机 学 院":
+                    await context.PostAsync("北邮计算机学科位列全国第六，全球第四十！");
+                    break;
+
+                default:
+                    await context.PostAsync("");
+                    break;
+
+            }
+            context.Wait(MessageReceived);
+        }
+        [LuisIntent("查结构布局")]
+        public async Task Structure(IDialogContext context, LuisResult result)
+        {
+            IList<EntityRecommendation> entity1 = result.Entities;
+            string entity = null;
+            foreach (EntityRecommendation example in entity1)
+            {
+                entity = entity + example.Entity;
+            }
+
+            switch (entity)
+            {
+                case "北京邮电大学党委组织":
+                    await context.PostAsync("党政办公室、组织部（党校）、宣传部、统战部、学生工作部（武装部）、研究生工作部、保密办公室、 保卫部、校工会、校团委、机关党委、教务党委、信息与通信工程学院党委、电子工程学院党委、计算机学院党委、自动化学院党委、软件学院党委、数字媒体与设计艺术学院党委、网络空间安全学院党委、理学院党委、经济管理学院党委、人文学院党委、马克思主义学院党委、国际学院党委、网络教育学院党委、民族教育学院党委、网络技术研究院党委、信息光子学与光通信研究院党委、后勤党委、离休党委、退休党委、资产经营公司党委、世纪学院党委、纪律检查委员会、纪委办公室");
+                    break;
+                case "北京邮电大学行政组织":
+                    await context.PostAsync("党政办公室（含信访办公室、档案馆）、教务处（含基础实验教学中心、招生办公室）、研究生院（含研究生招生办公室、研究生管理办公室）、科学技术发展研究院（含科研计划处、科技协作与成果处、国防科研处、科研基地处、技术转移处、教育信息化处）、发展战略研究中心、国际合作与交流处（含港澳台办公室）、学术委员会办公室、人事处、教师发展中心、学生事务管理处（含学生就业指导中心）、离退休工作处、财务处、基建处（含校区建设办公室）、资产管理处（含人防办公室、招标办公室）、后勤处、保密处、保卫处、监察处、审计处、远程与继续教育处、新闻中心、宏福校区综合办公室、沙河校区管理委员会");
+                    break;
+                case "网络技术研究院科研人员年龄":
+                    await context.PostAsync("全院科研人员平均年龄38岁，45岁以下人员占总数的83.7%，具有博士学位人数占科研人员总数的72.5%"); ;
+                    break;
+                default:
+                    await context.PostAsync("党政办公室、组织部（党校）、宣传部、统战部、学生工作部（武装部）、研究生工作部、保密办公室、 保卫部、校工会、校团委、机关党委、教务党委、信息与通信工程学院党委、电子工程学院党委、计算机学院党委、自动化学院党委、软件学院党委、数字媒体与设计艺术学院党委、网络空间安全学院党委、理学院党委、经济管理学院党委、人文学院党委、马克思主义学院党委、国际学院党委、网络教育学院党委、民族教育学院党委、网络技术研究院党委、信息光子学与光通信研究院党委、后勤党委、离休党委、退休党委、资产经营公司党委、世纪学院党委、纪律检查委员会、纪委办公室");
+                    break;
+
+            }
+            context.Wait(MessageReceived);
+        }
+        [LuisIntent("查招生")]
+        public async Task Enroll(IDialogContext context, LuisResult result)
+        {
+            IList<EntityRecommendation> entity1 = result.Entities;
+            string entity = null;
+            foreach (EntityRecommendation example in entity1)
+            {
+                entity = entity + example.Entity;
+            }
+
+            switch (entity)
+            {
+                case "感知技术研究院":
+                    await context.PostAsync("http://istb.bupt.edu.cn/channels/55.html");
+                    break;
+                case "电子工程学院":
+                    await context.PostAsync("http://see.bupt.edu.cn/list/list.php?p=7_22_1");
+                    break;
+                case "公共管理学院":
+                    await context.PostAsync("http://sppm.bupt.edu.cn/list/list.php?p=6_13_12017-03-20"); ;
+                    break;
+                default:
+                    await context.PostAsync("http://www.bupt.edu.cn/");
+                    break;
+
+            }
+            context.Wait(MessageReceived);
+        }
+        [LuisIntent("查时间段")]
+        public async Task TimeSlot(IDialogContext context, LuisResult result)
+        {
+            IList<EntityRecommendation> entity1 = result.Entities;
+            string entity = null;
+            foreach (EntityRecommendation example in entity1)
+            {
+                entity = entity + example.Entity;
+            }
+
+            switch (entity)
+            {
+                case "信息与通信工程学院停招":
+                    await context.PostAsync("1966年～1970年");
+                    break;
+
+                default:
+                    await context.PostAsync("");
+                    break;
+
+            }
+            context.Wait(MessageReceived);
+        }
+        [LuisIntent("查校友")]
+        public async Task Alumni(IDialogContext context, LuisResult result)
+        {
+            IList<EntityRecommendation> entity1 = result.Entities;
+            string entity = null;
+            foreach (EntityRecommendation example in entity1)
+            {
+                entity = entity + example.Entity;
+            }
+
+            switch (entity)
+            {
+                case "信息与通信工程学院":
+                    await context.PostAsync("详情请参见http://sice.bupt.edu.cn/xytd/xyfc.htm");
+                    break;
+
+                default:
+                    await context.PostAsync("很抱歉 没能帮您找到答案");
+                    break;
+
+            }
+            context.Wait(MessageReceived);
+        }
+        [LuisIntent("查活动")]
+        public async Task Activity(IDialogContext context, LuisResult result)
+        {
+            IList<EntityRecommendation> entity1 = result.Entities;
+            string entity = null;
+            foreach (EntityRecommendation example in entity1)
+            {
+                entity = entity + example.Entity;
+            }
+
+            switch (entity)
+            {
+                case "自动化学院学生":
+                    await context.PostAsync("情暖伊冬晚会、篮球赛");
+                    break;
+
+                default:
+                    await context.PostAsync("很抱歉 没能帮您找到答案");
+                    break;
+
+            }
+            context.Wait(MessageReceived);
+        }
+        [LuisIntent("查年龄")]
+        public async Task Age(IDialogContext context, LuisResult result)
+        {
+            IList<EntityRecommendation> entity1 = result.Entities;
+            string entity = null;
+            foreach (EntityRecommendation example in entity1)
+            {
+                entity = entity + example.Entity;
+            }
+
+            switch (entity)
+            {
+                case "网络技术研究院全院科研人员平均":
+                    await context.PostAsync("平均年龄38岁");
+                    break;
+
+                default:
+                    await context.PostAsync("很抱歉 没能帮您找到答案");
+                    break;
+
+            }
+            context.Wait(MessageReceived);
+        }
+
+
+
         [LuisIntent("None")]
         public async Task None(IDialogContext context, LuisResult result)
         {
