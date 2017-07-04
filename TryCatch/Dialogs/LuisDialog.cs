@@ -12,7 +12,25 @@ namespace TryCatch.Dialogs
     [Serializable]
     public class LuisDialog : LuisDialog<object>
     {
-        
+        [LuisIntent("判断")]
+        public async Task Judge(IDialogContext context, LuisResult result)
+        {          
+            await context.PostAsync("TryCatch正在努力查找中......");
+
+            Random ra = new Random(unchecked((int)DateTime.Now.Ticks));
+            int tmp = ra.Next(0, 2);
+
+            if(tmp == 1)
+            {
+                await context.PostAsync("是");
+            }
+            else
+            {
+                await context.PostAsync("否");
+            }                                           
+            context.Wait(MessageReceived);
+        }
+
         [LuisIntent("查数量")]
         public async Task Find_Number(IDialogContext context, LuisResult result)
         {
@@ -23,7 +41,7 @@ namespace TryCatch.Dialogs
             foreach (EntityRecommendation example in entity1)
             {
                 entity = entity + example.Entity;
-            }
+            }           
 
             await context.PostAsync("TryCatch正在努力查找中......");
 
@@ -1273,7 +1291,7 @@ namespace TryCatch.Dialogs
         }
         
         [LuisIntent("查成员")]
-        public async Task FindMember(IDialogContext context, LuisResult result)
+        public async Task Find_Member(IDialogContext context, LuisResult result)
         {
             //获取entity列表
             IList<EntityRecommendation> entity1 = result.Entities;
@@ -1283,6 +1301,9 @@ namespace TryCatch.Dialogs
             {
                 entity = entity + example.Entity;
             }
+
+            await context.PostAsync("TryCatch正在努力查找中......");
+
             switch (entity)
             {
                 case "信息与通信工程学院实验中心实验室":
@@ -1876,7 +1897,7 @@ namespace TryCatch.Dialogs
         }
 
         [LuisIntent("查专业")]
-        public async Task FindMajor(IDialogContext context, LuisResult result)
+        public async Task Find_Major(IDialogContext context, LuisResult result)
         {
             //获取entity列表
             IList<EntityRecommendation> entity1 = result.Entities;
@@ -1886,6 +1907,9 @@ namespace TryCatch.Dialogs
             {
                 entity = entity + example.Entity;
             }
+
+            await context.PostAsync("TryCatch正在努力查找中......");
+
             switch (entity)
             {
                 case "信息与通信工程学院1952年 ～ 1958年有线电工程系":
@@ -3359,22 +3383,39 @@ namespace TryCatch.Dialogs
             }           
             context.Wait(MessageReceived);
         }
-        
+
         [LuisIntent("问面积")]
         public async Task Find_Area(IDialogContext context, LuisResult result)
         {
             IList<EntityRecommendation> entity1 = result.Entities;
             string entity = null;
+
             foreach (EntityRecommendation example in entity1)
             {
                 entity = entity + example.Entity;
             }
 
-<<<<<<< HEAD
             await context.PostAsync("TryCatch正在努力查找中......");
 
-=======
-<<<<<<< HEAD
+            switch (entity)
+            {
+                case "信息与通信工程学院实验中心总":
+                    await context.PostAsync("2000平方米");
+                    break;
+                default:
+                    string question = result.Query;
+                    string solution = await NotFind.Sub_Process(question);
+
+                    if (solution == null)
+                    {
+                        await context.PostAsync("很抱歉 没能帮您找到答案");
+                    }
+                    else await context.PostAsync(solution);
+                    break;
+            }
+            context.Wait(MessageReceived);
+        }
+
         [LuisIntent("查名称和称呼")]
         public async Task Appellation(IDialogContext context, LuisResult result)
         {
@@ -3384,6 +3425,8 @@ namespace TryCatch.Dialogs
             {
                 entity = entity + example.Entity;
             }
+
+            await context.PostAsync("TryCatch正在努力查找中......");
 
             switch (entity)
             {
@@ -3627,11 +3670,16 @@ namespace TryCatch.Dialogs
                 case "计算机学院院长":
                     await context.PostAsync("李德毅院士");
                     break;
-
                 default:
-                    await context.PostAsync("");
-                    break;
+                    string question = result.Query;
+                    string solution = await NotFind.Sub_Process(question);
 
+                    if (solution == null)
+                    {
+                        await context.PostAsync("很抱歉 没能帮您找到答案");
+                    }
+                    else await context.PostAsync(solution);
+                    break;
             }
             context.Wait(MessageReceived);
         }
@@ -3645,6 +3693,8 @@ namespace TryCatch.Dialogs
             {
                 entity = entity + example.Entity;
             }
+
+            await context.PostAsync("TryCatch正在努力查找中......");
 
             switch (entity)
             {
@@ -3832,7 +3882,7 @@ namespace TryCatch.Dialogs
                     await context.PostAsync("吴志军性别男职务?学术兼职天津市通信学会高级会员。主要研究领域为老师类型兼职教授所属中心信息安全中心职称教授承担课程?研究方向星基航空通信导航关键技术和网络信息安全个人介绍生于1965年5月，博士，教授");
                     break;
                 case "网络空间安全许成谦":
-                    await context.PostAsync("燕山大学信息科学与工程学院副院长。中国电子协会高级会员。博导、硕导（兼任）教授。承担课程：研究方向密码学与信息安全
+                    await context.PostAsync("燕山大学信息科学与工程学院副院长。中国电子协会高级会员。博导、硕导（兼任）教授。承担课程：研究方向密码学与信息安全");
                     break;
                 case "网络空间安全袁东风":
                     await context.PostAsync("袁东风，男，山东大学信息科学与工程学院院长。IEEE高级会员，IEEE山东分会主席，国家教育部高等学校电子信息类专业教学指导委员会委员，中国电子学会理事，中国电子学会第七届学术工作委员会委员，中国人工智能学会智能数字内容安全专业委员会委员，享受国务院政府特殊津贴专家，山东省“中国虹计划”协同创新中心首席科学家");
@@ -3894,19 +3944,205 @@ namespace TryCatch.Dialogs
                     await context.PostAsync("	 北京邮电大学继续教育学院（原北京邮电大学培训中心）成立于一九八六年，多年来坚持面向通信与信息行业实施非学历继续教育，提供多角度、全方位的培训内容和服务，已成为通信与信息相关企业单位进行新技术培训、高层次知识研修、岗位考核认证以及人才选拔的高级继续教育基地。三十多年来，北京邮电大学继续教育学院紧跟通信与信息行业发展、追踪通信与信息企业单位变革、不断改进服务方式，采用多种培训模式，与众多国内外通信运营商、通信设备制造商、业务/内容提供商保持长期的合作关系。同时也积极拓展服务领域，尽力为全社会提供更多服务。2015年，北京邮电大学继续教育学院以全新的运营体制和模式，面向全社会，提供非学历教育服务。响应国家创新驱动发展战略，助力构建学习型社会与终身学习与发展，致力打造开放式的泛信息人才培养平台。");
                     break;
                 default:
-                    await context.PostAsync("");
+                    string question = result.Query;
+                    string solution = await NotFind.Sub_Process(question);
+
+                    if (solution == null)
+                    {
+                        await context.PostAsync("很抱歉 没能帮您找到答案");
+                    }
+                    else await context.PostAsync(solution);
                     break;
 
             }
             context.Wait(MessageReceived);
         }
-=======
->>>>>>> 561326029ddcade999cf5e5ef89af7d7570184f6
+
+        [LuisIntent("查开始时间")]
+        public async Task Find_BeginT(IDialogContext context, LuisResult result)
+        {
+            //获取entity列表
+            IList<EntityRecommendation> entity1 = result.Entities;
+
+            string entity = null;
+
+            foreach (EntityRecommendation example in entity1)
+            {
+                entity = entity + example.Entity;
+            }
+
+            await context.PostAsync("TryCatch正在努力查找中......");
+
             switch (entity)
             {
-                case "信息与通信工程学院实验中心总":
-                    await context.PostAsync("2000平方米");
+                case "北京邮电大学信息与通信工程学院":
+                    //回复消息
+                    await context.PostAsync("2008年");
                     break;
+                case "北邮信息与通信工程学院":
+                    //回复消息
+                    await context.PostAsync("2008年");
+                    break;
+                case "网络空间安全一":
+                    //回复消息
+                    await context.PostAsync("2016年");
+                    break;
+                case "网络空间安全":
+                    //回复消息
+                    await context.PostAsync("2016年");
+                    break;
+                case "电子工程学院":
+                    //回复消息
+                    await context.PostAsync("成立于2000年");
+                    break;
+                case "电子工程学院一":
+                    //回复消息
+                    await context.PostAsync("成立于2000年");
+                    break;
+                case "软件学院":
+                    //回复消息
+                    await context.PostAsync("软件学院成立于2001年10月18日");
+                    break;
+                case "人文学院":
+                    //回复消息
+                    await context.PostAsync("人文学院成立于2008年8月");
+                    break;
+                case "理学院":
+                    //回复消息
+                    await context.PostAsync("北京邮电大学理学院成立于2000年5月");
+                    break;
+                case "公共管理学院":
+                    //回复消息
+                    await context.PostAsync("2009年");
+                    break;
+                case "公共管理学院招硕士生":
+                    //回复消息
+                    await context.PostAsync("2010");
+                    break;
+                case "北京邮电大学网络技术研究院":
+                    //回复消息
+                    await context.PostAsync("2008年8月");
+                    break;
+                case "北邮网络技术研究院":
+                    //回复消息
+                    await context.PostAsync("2008年8月");
+                    break;               
+                case "信息光子学与光通信研究院":
+                    //回复消息
+                    await context.PostAsync("2008年");
+                    break;
+                case "感知技术研究院学院":
+                    //回复消息
+                    await context.PostAsync("2010年2月24日");
+                    break;
+                case "感知技术研究院":
+                    //回复消息
+                    await context.PostAsync("2010年2月24日");
+                    break;
+                case "北京邮电大学一开办成人高等学历教育":
+                    //回复消息
+                    await context.PostAsync("1956年");
+                    break;
+                case "网络教育学院一":
+                    //回复消息
+                    await context.PostAsync("1956年");
+                    break;
+                case "北京邮电大学网络教育学院一":
+                    //回复消息
+                    await context.PostAsync("1956年");
+                    break;
+                case "北邮网络教育学院一":
+                    //回复消息
+                    await context.PostAsync("1956年");
+                    break;
+                case "北邮网络教育学院":
+                    //回复消息
+                    await context.PostAsync("1956年");
+                    break;
+                case "北京邮电大学网络教育学院":
+                    //回复消息
+                    await context.PostAsync("1956年");
+                    break;
+                case "北京邮电大学成人高等学历教育":
+                    //回复消息
+                    await context.PostAsync("1956年");
+                    break;
+                case "北京邮电大学民族教育学院三基地请示批复":
+                    //回复消息
+                    await context.PostAsync("2009年3月16日");
+                    break;
+                case "民族教育学院三基地请示批复":
+                    //回复消息
+                    await context.PostAsync("2009年3月16日");
+                    break;
+                case "北邮民族教育学院三基地请示批复":
+                    //回复消息
+                    await context.PostAsync("2009年3月16日");
+                    break;
+                case "北京邮电大学民族教育学院批准成立":
+                    //回复消息
+                    await context.PostAsync("2003年11月25日");
+                    break;
+                case "民族教育学院":
+                    //回复消息
+                    await context.PostAsync("2003年11月25日");
+                    break;
+                case "北邮民族教育学院":
+                    //回复消息
+                    await context.PostAsync("2003年11月25日");
+                    break;                
+                case "北京邮电大学民族教育学院":
+                    //回复消息
+                    await context.PostAsync("2003年11月25日");
+                    break;              
+                case "北邮民族教育学院一":
+                    //回复消息
+                    await context.PostAsync("2004年6月4日");
+                    break;
+                case "民族教育学院一":
+                    //回复消息
+                    await context.PostAsync("2004年6月4日");
+                    break;
+                case "北邮民族教育学院一招生":
+                    //回复消息
+                    await context.PostAsync("2004年");
+                    break;
+                case "北京邮电大学民族教育学院一研究生":
+                    //回复消息
+                    await context.PostAsync("2006年");
+                    break;
+                case "民族教育学院一研究生":
+                    //回复消息
+                    await context.PostAsync("2006年");
+                    break;
+                case "北京邮电大学校徽":
+                    //回复消息
+                    await context.PostAsync("1994年10月份");
+                    break;
+                case "北邮校徽":
+                    //回复消息
+                    await context.PostAsync("1994年10月份");
+                    break;
+                case "北京邮电大学培训中心信息工程系":
+                    //回复消息
+                    await context.PostAsync("1986年");
+                    break;
+                case "北京邮电大学科研所":
+                    //回复消息
+                    await context.PostAsync("1980年");
+                    break;
+                case "北京邮电大学电信工程系":
+                    //回复消息
+                    await context.PostAsync("1971年");
+                    break;
+                case "北京邮电大学继续教育学院":
+                    //回复消息
+                    await context.PostAsync("1986年");
+                    break;
+                case "继续教育学院":
+                    //回复消息
+                    await context.PostAsync("1986年");
+                    break;                
                 default:
                     string question = result.Query;
                     string solution = await NotFind.Sub_Process(question);
@@ -3917,11 +4153,10 @@ namespace TryCatch.Dialogs
                     }
                     else await context.PostAsync(solution);
                     break;
-            }            
+            }
             context.Wait(MessageReceived);
         }
-        
->>>>>>> 253ba76091bdd6ceba0ba87f2f87ffdc287d2673
+
         [LuisIntent("None")]
         public async Task None(IDialogContext context, LuisResult result)
         {
