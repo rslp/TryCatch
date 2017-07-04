@@ -17,14 +17,15 @@ namespace TryCatch.Dialogs
         public async Task Find_Number(IDialogContext context, LuisResult result)
         {
             //获取entity列表
-            IList<EntityRecommendation> entity1 = result.Entities;
-
+            IList<EntityRecommendation> entity1 = result.Entities;            
             string entity = null;
 
             foreach (EntityRecommendation example in entity1)
             {
                 entity = entity + example.Entity;
             }
+
+            await context.PostAsync("TryCatch正在努力查找中......");
 
             switch (entity)
             {
@@ -653,9 +654,9 @@ namespace TryCatch.Dialogs
             }
             context.Wait(MessageReceived);
         }
-        
-        [LuisIntent("查地理位置")]
-        public async Task Find_Location(IDialogContext context, LuisResult result)
+
+        [LuisIntent("查联系方式")]
+        public async Task Find_Contact(IDialogContext context, LuisResult result)
         {
             //获取entity列表
             IList<EntityRecommendation> entity1 = result.Entities;
@@ -666,6 +667,538 @@ namespace TryCatch.Dialogs
             {
                 entity = entity + example.Entity;
             }
+
+            await context.PostAsync("TryCatch正在努力查找中......");
+
+            switch (entity)
+            {
+                case "北京邮电大学信息与通信工程学院网址是什么":
+                    //回复消息
+                    await context.PostAsync("http://sice.bupt.edu.cn/");
+                    break;
+                case "北京邮电大学信息与通信工程学院网址":
+                    //回复消息
+                    await context.PostAsync("http://sice.bupt.edu.cn/");
+                    break;
+                case "信息与通信工程学院官网是什么":
+                    //回复消息
+                    await context.PostAsync("http://sice.bupt.edu.cn/");
+                    break;
+                case "信息与通信工程学院网址是什么":
+                    //回复消息
+                    await context.PostAsync("http://sice.bupt.edu.cn/");
+                    break;
+                case "北京邮电大学信息与通信工程学院联系电话是啥？":
+                    //回复消息
+                    await context.PostAsync("01062283295");
+                    break;
+                case "北京邮电大学信息与通信工程学院学院办公室电话是什么":
+                    //回复消息
+                    await context.PostAsync("01062283295");
+                    break;
+                case "北京邮电大学信息与通信工程学院学院办公室电话是啥？":
+                    //回复消息
+                    await context.PostAsync("01062283295");
+                    break;
+                case "北京邮电大学信息与通信工程学院邮编":
+                    //回复消息
+                    await context.PostAsync("100876");
+                    break;
+                case "北京邮电大学信息与通信工程学院官网是什么":
+                    //回复消息
+                    await context.PostAsync("http://sice.bupt.edu.cn/");
+                    break;
+                case "理学院":
+                    //回复消息
+                    await context.PostAsync("电　话：010-62282099 传　真：010-62282931");
+                    break;
+                case "理学院电话":
+                    //回复消息
+                    await context.PostAsync("010-62282099");
+                    break;
+                case "理学院地点":
+                    //回复消息
+                    await context.PostAsync("北京市海淀区西土城路10号主楼807室");
+                    break;
+                case "理学院办公室":
+                    //回复消息
+                    await context.PostAsync("北京市海淀区西土城路10号主楼807室");
+                    break;
+                case "理学院邮件":
+                    //回复消息
+                    await context.PostAsync("E-mail: bylxy006@163.com");
+                    break;
+                case "经济管理学院辅导员办公室哪":
+                    //回复消息
+                    await context.PostAsync("经管楼（北门新红楼）111室");
+                    break;
+                case "经济管理学院工会地点":
+                    //回复消息
+                    await context.PostAsync("经管楼（北门新红楼）220室");
+                    break;
+                case "经济管理学院工会哪里":
+                    //回复消息
+                    await context.PostAsync("经管楼（北门新红楼）220室");
+                    break;
+                case "经济管理学院工会":
+                    //回复消息
+                    await context.PostAsync("010-62282039");
+                    break;
+                case "经济管理学院工会电话":
+                    //回复消息
+                    await context.PostAsync("010-62282039");
+                    break;
+                case "经济管理学院学科建设与科研管理地点":
+                    //回复消息
+                    await context.PostAsync("经管楼（北门新红楼）216室");
+                    break;
+                case "经济管理学院学科建设与科研管理哪里":
+                    //回复消息
+                    await context.PostAsync("经管楼（北门新红楼）216室");
+                    break;
+                case "经济管理学院学科建设与科研管理电话":
+                    //回复消息
+                    await context.PostAsync("010-62283602");
+                    break;
+                case "经济管理学院实验中心地点":
+                    //回复消息
+                    await context.PostAsync("主楼1420室");
+                    break;
+                case "经济管理学院实验中心哪里":
+                    //回复消息
+                    await context.PostAsync("主楼1420室");
+                    break;
+                case "经济管理学院实验中心":
+                    //回复消息
+                    await context.PostAsync("010-62281993");
+                    break;
+                case "经济管理学院实验中心电话":
+                    //回复消息
+                    await context.PostAsync("010-62281993");
+                    break;
+                case "经济管理学院EMBA电话":
+                    //回复消息
+                    await context.PostAsync("招生电话：010-62281900 培养： 010-62282847 学生活动电话：010-62281906 论文答辩电话：010-62283413");
+                    break;
+                case "经济管理学院EMBA":
+                    //回复消息
+                    await context.PostAsync("招生电话：010-62281900 培养： 010-62282847 学生活动电话：010-62281906 论文答辩电话：010-62283413");
+                    break;
+                case "经济管理学院EMBA地点":
+                    //回复消息
+                    await context.PostAsync("经管楼（北门新红楼）202室");
+                    break;
+                case "经济管理学院EMBA哪里":
+                    //回复消息
+                    await context.PostAsync("经管楼（北门新红楼）202室");
+                    break;
+                case "经济管理学院财务办公室":
+                    //回复消息
+                    await context.PostAsync("010-62283472");
+                    break;                
+                case "经济管理学院财务办公室哪里":
+                    //回复消息
+                    await context.PostAsync("经管楼（北门新红楼）202室");
+                    break;
+                case "经济管理学院教务办公室地点":
+                    //回复消息
+                    await context.PostAsync("经管楼（北门新红楼）115室");
+                    break;
+                case "经济管理学院财务办公室电话":
+                    //回复消息
+                    await context.PostAsync("010-62283472");
+                    break;
+                case "经济管理学院教务办公室":
+                    //回复消息
+                    await context.PostAsync("010-62282101 010-62281902");
+                    break;
+                case "经济管理学院教务办公室电话":
+                    //回复消息
+                    await context.PostAsync("010-62282101 010-62281902");
+                    break;
+                case "经济管理学院教务办公室哪里":
+                    //回复消息
+                    await context.PostAsync("经管楼（北门新红楼）115室");
+                    break;
+                case "经济管理学院院务办公室":
+                    //回复消息
+                    await context.PostAsync("经管楼（北门新红楼）220室");
+                    break;
+                case "经济管理学院院务办公室电话":
+                    //回复消息
+                    await context.PostAsync("010-62282039 010-62283432");
+                    break;
+                case "经济管理学院院务办公室哪里":
+                    //回复消息
+                    await context.PostAsync("经管楼（北门新红楼）220室");
+                    break;
+                case "经济管理学院院务办公室地点":
+                    //回复消息
+                    await context.PostAsync("经管楼（北门新红楼）220室");
+                    break;
+                case "经济管理学院MBA地点":
+                    //回复消息
+                    await context.PostAsync("经管楼（北门新红楼）202室");
+                    break;
+                case "经济管理学院MBA办公室哪里":
+                    //回复消息
+                    await context.PostAsync("经管楼（北门新红楼）202室");
+                    break;                
+                case "经济管理学院MBA电话":
+                    //回复消息
+                    await context.PostAsync("招生电话：010-62282069	培养： 010-62282847 学生活动电话：010-62283277 论文答辩电话：010-62283413");
+                    break;
+                case "经济管理学院MBA":
+                    //回复消息
+                    await context.PostAsync("招生电话：010-62282069	培养： 010-62282847 学生活动电话：010-62283277 论文答辩电话：010-62283413");
+                    break;
+                case "计算机学院招生办公室哪里":
+                    //回复消息
+                    await context.PostAsync("教三楼1005室");
+                    break;
+                case "计算机学院招生电话":
+                    //回复消息
+                    await context.PostAsync("010－62282656");
+                    break;
+                case "计算机学院招生联系电话":
+                    //回复消息
+                    await context.PostAsync("010－62282656");
+                    break;
+                case "计算机学院招生联系方式":
+                    //回复消息
+                    await context.PostAsync("010－62282656");
+                    break;
+                case "计算机学院招生办公室地点":
+                    //回复消息
+                    await context.PostAsync("教三楼1005室");
+                    break;
+                case "计算机学院网址":
+                    //回复消息
+                    await context.PostAsync("http://scs.bupt.edu.cn");
+                    break;
+                case "计算机学院邮件":
+                    //回复消息
+                    await context.PostAsync("E-mail:buptcs@bupt.edu.cn");
+                    break;
+                case "计算机学院电话":
+                    //回复消息
+                    await context.PostAsync("010－62282656");
+                    break;
+                case "北京邮电大学网络技术研究院邮编":
+                    //回复消息
+                    await context.PostAsync("100876");
+                    break;
+                case "网络技术研究院官网":
+                    //回复消息
+                    await context.PostAsync("http://int.bupt.edu.cn/");
+                    break;
+                case "北京邮电大学网络技术研究院电话":
+                    //回复消息
+                    await context.PostAsync("010-61198120");
+                    break;
+                case "北京邮电大学网络技术研究院学院办公室电话":
+                    //回复消息
+                    await context.PostAsync("010-61198120");
+                    break;
+                case "北京邮电大学体育部官网":
+                    //回复消息
+                    await context.PostAsync("http://ped.bupt.edu.cn/");
+                    break;
+                case "北京邮电大学体育部网址":
+                    //回复消息
+                    await context.PostAsync("http://ped.bupt.edu.cn/");
+                    break;
+                case "体育部官网":
+                    //回复消息
+                    await context.PostAsync("http://ped.bupt.edu.cn/");
+                    break;
+                case "网络教育学院网址":
+                    //回复消息
+                    await context.PostAsync("http://www.buptnu.com.cn");
+                    break;
+                case "北京邮电大学网络教育学院网址招生咨询电话":
+                    //回复消息
+                    await context.PostAsync("（010）82056326 函授、业余、现代远程教育；（010）82056439 工程硕士；（010）82056351");
+                    break;
+                case "北邮网络教育学院招生咨询电话":
+                    //回复消息
+                    await context.PostAsync("（010）82056326 函授、业余、现代远程教育；（010）82056439 工程硕士；（010）82056351");
+                    break;
+                case "北京邮电大学网络教育学院邮编":
+                    //回复消息
+                    await context.PostAsync("100088");
+                    break;
+                case "北京邮电大学网络教育学院微信公共账号":
+                    //回复消息
+                    await context.PostAsync("buptnu_ren");
+                    break;
+                case "感知技术研究院学院网上报销系统管理员电话":
+                    //回复消息
+                    await context.PostAsync("0510-68869666-8001");
+                    break;
+                case "感知技术研究院学院网上报销系统管理员邮箱":
+                    //回复消息
+                    await context.PostAsync("zmy@itbupt.com");
+                    break;
+                case "感知技术研究院学院网上报销系统管理员":
+                    //回复消息
+                    await context.PostAsync("周老师");
+                    break;
+                case "电子工程学院教务科":
+                    //回复消息
+                    await context.PostAsync("62283725");
+                    break;
+                case "电子工程学院学生工作办":
+                    //回复消息
+                    await context.PostAsync("01062282198、郭嘉、宋洋 李登阳、李昂、左志昊、张珣、来长新、曹安然、刘泰宇");
+                    break;
+                case "感知技术研究院学院":
+                    //回复消息
+                    await context.PostAsync("地址（北京）：北京市海淀区西土城路10号新科研楼801室 科研类项目管理员联系方式： 联系人姓名：缪老师 电话：0510-68869666-8039 邮件：mll@itbupt.com 网上报销系统管理员联系方式： 联系人姓名：周老师 电话：0510-68869666-8001 邮件：zmy@itbupt.com");
+                    break;
+                case "感知技术研究院":
+                    //回复消息
+                    await context.PostAsync("地址（北京）：北京市海淀区西土城路10号新科研楼801室 科研类项目管理员联系方式： 联系人姓名：缪老师 电话：0510-68869666-8039 邮件：mll@itbupt.com 网上报销系统管理员联系方式： 联系人姓名：周老师 电话：0510-68869666-8001 邮件：zmy@itbupt.com");
+                    break;
+                case "感知技术研究院学院地址":
+                    //回复消息
+                    await context.PostAsync("北京市海淀区西土城路10号新科研楼801室");
+                    break;
+                case "感知技术研究院学院科研类项目管理员":
+                    //回复消息
+                    await context.PostAsync("联系人姓名：缪老师 电话：0510-68869666-8039 邮件：mll@itbupt.com ");
+                    break;
+                case "感知技术研究院学院科研类项目管理员电话":
+                    //回复消息
+                    await context.PostAsync("0510-68869666-8039");
+                    break;
+                case "感知技术研究院学院科研类项目管理员邮箱":
+                    //回复消息
+                    await context.PostAsync("mll@itbupt.com");
+                    break;
+                case "电子工程学院院党政办":
+                    //回复消息
+                    await context.PostAsync("01062281958、穆冬梅  主任、杨光永 邹赫");
+                    break;
+                case "电子工程学院":
+                    //回复消息
+                    await context.PostAsync("地址：北京市海淀区西土城路10号北京邮电大学电子工程学院 邮编：100876 电话：010-62281958");
+                    break;
+                case "电子工程学院地址":
+                    //回复消息
+                    await context.PostAsync("北京市海淀区西土城路10号北京邮电大学电子工程学院");
+                    break;
+                case "电子工程学院邮编":
+                    //回复消息
+                    await context.PostAsync("100876");
+                    break;
+                case "电子工程学院电话":
+                    //回复消息
+                    await context.PostAsync("010-62281958");
+                    break;
+                case "电子工程学院办公室电话":
+                    //回复消息
+                    await context.PostAsync("62281958");
+                    break;
+                case "电子工程学院教务科电话":
+                    //回复消息
+                    await context.PostAsync("62283725");
+                    break;
+                case "北京邮电大学自动化学院邮编":
+                    //回复消息
+                    await context.PostAsync("100876");
+                    break;
+                case "北京邮电大学自动化学院电信测试实验室联系电话":
+                    //回复消息
+                    await context.PostAsync("010-62283173");
+                    break;
+                case "北京邮电大学自动化学院机器人研究室联系电话":
+                    //回复消息
+                    await context.PostAsync("010-62282159/2891/2410");
+                    break;
+                case "北京邮电大学自动化学院电接触科研室联系电话":
+                    //回复消息
+                    await context.PostAsync("010-62283173");
+                    break;
+                case "北京邮电大学自动化学院机电创新实验室联系电话":
+                    //回复消息
+                    await context.PostAsync("010-62284000");
+                    break;
+                case "北京邮电大学自动化学院物空间机器人技术教育部工程研究中心联系电话":
+                    //回复消息
+                    await context.PostAsync("010-61198259/8269/8209");
+                    break;
+                case "北京邮电大学自动化学院物流工程实验室联系电话":
+                    //回复消息
+                    await context.PostAsync("010-62281381");
+                    break;
+                case "北京邮电大学自动化学院机电综合实验室联系电话":
+                    //回复消息
+                    await context.PostAsync("010-62282175");
+                    break;
+                case "北京邮电大学自动化学院自动控制实验室联系电话":
+                    //回复消息
+                    await context.PostAsync("010-62282471");
+                    break;
+                case "北京邮电大学自动化学院工业设计专业实验联系电话":
+                    //回复消息
+                    await context.PostAsync("010-62282775");
+                    break;
+                case "北京邮电大学自动化学院测控技术与实验专业实验室联系电话":
+                    //回复消息
+                    await context.PostAsync("010-62282295");
+                    break;
+                case "北京邮电大学自动化学院机械基础实验室联系电话":
+                    //回复消息
+                    await context.PostAsync("010-62282300");
+                    break;
+                case "北京邮电大学自动化学院办公室联系电话":
+                    //回复消息
+                    await context.PostAsync("010-62282629");
+                    break;
+                case "北京邮电大学自动化学院检测技术与自动化教研中心联系电话":
+                    //回复消息
+                    await context.PostAsync("010-62283022");
+                    break;
+                case "北京邮电大学自动化学院教务科联系电话":
+                    //回复消息
+                    await context.PostAsync("010-62282129");
+                    break;
+                case "北京邮电大学自动化学院院务联系电话":
+                    //回复消息
+                    await context.PostAsync("010-62282629");
+                    break;
+                case "北京邮电大学自动化学院副院长联系电话":
+                    //回复消息
+                    await context.PostAsync("010-62282173");
+                    break;
+                case "北京邮电大学自动化学院副书记联系电话":
+                    //回复消息
+                    await context.PostAsync("010-62282281");
+                    break;
+                case "北京邮电大学自动化学院执行院长联系电话":
+                    //回复消息
+                    await context.PostAsync("010-62285018");
+                    break;
+                case "北京邮电大学自动化学院书记室联系电话":
+                    //回复消息
+                    await context.PostAsync("010-62281011");
+                    break;
+                case "北京邮电大学民族教育学院邮编":
+                    //回复消息
+                    await context.PostAsync("102209");
+                    break;
+                case "北京邮电大学民族教育学院官网":
+                    //回复消息
+                    await context.PostAsync("http://seme.bupt.edu.cn/");
+                    break;
+                case "北京邮电大学民族教育学院网址":
+                    //回复消息
+                    await context.PostAsync("http://seme.bupt.edu.cn/");
+                    break;
+                case "民族教育学院官网":
+                    //回复消息
+                    await context.PostAsync("http://seme.bupt.edu.cn/");
+                    break;
+                case "民族教育学院网址":
+                    //回复消息
+                    await context.PostAsync("http://seme.bupt.edu.cn/");
+                    break;
+                case "北京邮电大学民族教育学院联系电话":
+                    //回复消息
+                    await context.PostAsync("(010)58828308");
+                    break;
+                case "北京邮电大学邮编":
+                    //回复消息
+                    await context.PostAsync("100876");
+                    break;
+                case "北邮邮编":
+                    //回复消息
+                    await context.PostAsync("100876");
+                    break;
+                case "自动化学院网址":
+                    //回复消息
+                    await context.PostAsync("http://sa.bupt.edu.cn/");
+                    break;
+                case "自动化学院官网":
+                    //回复消息
+                    await context.PostAsync("http://sa.bupt.edu.cn/");
+                    break;
+                case "北京邮电大学自动化学院网址":
+                    //回复消息
+                    await context.PostAsync("http://sa.bupt.edu.cn/");
+                    break;
+                case "北京邮电大学自动化学院官网":
+                    //回复消息
+                    await context.PostAsync("http://sa.bupt.edu.cn/");
+                    break;
+                case "北京邮电大学信息与通信工程学院校友分会":
+                    //回复消息
+                    await context.PostAsync("会长：张琳、秘书长：王文华、电话：010-62283295、传真：010-62281166");
+                    break;
+                case "北京邮电大学信息与通信工程学院校友分会传真":
+                    //回复消息
+                    await context.PostAsync("010-62281166");
+                    break;
+                case "北京邮电大学信息与通信工程学院校友分会电话":
+                    //回复消息
+                    await context.PostAsync("010-62283295");
+                    break;
+                case "北京邮电大学继续教育学院联系人":
+                    //回复消息
+                    await context.PostAsync("谢老师 15811391160");
+                    break;
+                case "北京邮电大学继续教育学院邮编":
+                    //回复消息
+                    await context.PostAsync("100876");
+                    break;
+                case "北京邮电大学继续教育学院电话":
+                    //回复消息
+                    await context.PostAsync("010-62283755或者010-62282332");
+                    break;
+                case "北京邮电大学继续教育学院官网":
+                    //回复消息
+                    await context.PostAsync("http://sce.bupt.edu.cn/");
+                    break;                
+                case "继续教育学院官网":
+                    //回复消息
+                    await context.PostAsync("http://sce.bupt.edu.cn/");
+                    break;
+                case "继续教育学院网址":
+                    //回复消息
+                    await context.PostAsync("http://sce.bupt.edu.cn/");
+                    break;
+                case "计算机学院":
+                    //回复消息
+                    await context.PostAsync("学院办公室电话：+86-10-62283324 传真：+86-10-62282763");
+                    break;                
+                default:
+                    string question = result.Query;
+                    string solution = await NotFind.Sub_Process(question);
+
+                    if (solution == null)
+                    {
+                        await context.PostAsync("很抱歉 没能帮您找到答案");
+                    }
+                    else await context.PostAsync(solution);
+                    break;
+            }
+            context.Wait(MessageReceived);
+        }
+
+        [LuisIntent("查地理位置")]
+        public async Task Find_Location(IDialogContext context, LuisResult result)
+        {
+            //获取entity列表
+            IList<EntityRecommendation> entity1 = result.Entities;
+            string entity = null;
+
+            foreach (EntityRecommendation example in entity1)
+            {
+                entity = entity + example.Entity;
+            }
+
+            await context.PostAsync("TryCatch正在努力查找中......");
 
             switch (entity)
             {
@@ -751,6 +1284,8 @@ namespace TryCatch.Dialogs
             {
                 entity = entity + example.Entity;
             }
+
+            await context.PostAsync("TryCatch正在努力查找中......");
 
             switch (entity)
             {
@@ -873,6 +1408,8 @@ namespace TryCatch.Dialogs
                 entity = entity + example.Entity;
             }
 
+            await context.PostAsync("TryCatch正在努力查找中......");
+
             switch (entity)
             {
                 case "网络技术研究院45岁以下科研人员总数":
@@ -954,6 +1491,8 @@ namespace TryCatch.Dialogs
                 entity = entity + example.Entity;
             }
 
+            await context.PostAsync("TryCatch正在努力查找中......");
+
             switch (entity)
             {
                 case "继续教育学院":
@@ -989,6 +1528,9 @@ namespace TryCatch.Dialogs
             {
                 entity = entity + example.Entity;
             }
+
+            await context.PostAsync("TryCatch正在努力查找中......");
+
             switch (entity)
             {
                 case "创新创业学院":
@@ -1040,6 +1582,9 @@ namespace TryCatch.Dialogs
             {
                 entity = entity + example.Entity;
             }
+
+            await context.PostAsync("TryCatch正在努力查找中......");
+
             switch (entity)
             {
                 case "人文学院语言实验教学中心":
@@ -1091,14 +1636,59 @@ namespace TryCatch.Dialogs
             }           
             context.Wait(MessageReceived);
         }
-        
+
+        [LuisIntent("test打招呼")]
+        public async Task Say_Hi(IDialogContext context, LuisResult result)
+        {
+            await context.PostAsync("你好，我叫TryCatch，我是北邮信息智能查询机器人，有什么关于北邮的问题尽管问我好啦，我一定竭尽全力去回答！");
+            await context.PostAsync("问答小提示：");
+            await context.PostAsync("1 每个问题请在最后加上问号。");
+            await context.PostAsync("2 请尽量使用疑问句提问哦。");
+            await context.PostAsync("3 描述问题请尽量描述的详尽些，问答只支持中文，不支持别的语言哦。");
+            await context.PostAsync("4 每个问题里请加上“北邮”或者“北京邮电大学”字样，要不然我帮你查到清华去可就不好啦。");
+            await context.PostAsync("5 问题的答案大部分会出自北邮官方网站，当然如果您的提问我在官网找不到，我会通过别的途径尽量给您回复。");
+            await context.PostAsync("6 当然我还是个知识储备不完全的机器人，要是回答错了，还请见谅。");
+            await context.PostAsync("7 下面请开始提问吧！");
+            context.Wait(MessageReceived);
+        }
+
         [LuisIntent("test询问名字")]
         public async Task Find_Name(IDialogContext context, LuisResult result)
         {            
-            await context.PostAsync("你好，我叫TryCatch，我是北邮信息智能查询机器人，有什么问题尽管问我好啦，我一定竭尽全力去回答！");                             
+            await context.PostAsync("你好，我叫TryCatch，我是北邮信息智能查询机器人，有什么关于北邮的问题尽管问我好啦，我一定竭尽全力去回答！");
+            await context.PostAsync("问答小提示：");
+            await context.PostAsync("1 每个问题请在最后加上问号。");
+            await context.PostAsync("2 请尽量使用疑问句提问哦。");
+            await context.PostAsync("3 描述问题请尽量描述的详尽些，问答只支持中文，不支持别的语言哦。");
+            await context.PostAsync("4 每个问题里请加上“北邮”或者“北京邮电大学”字样，要不然我帮你查到清华去可就不好啦。");           
+            await context.PostAsync("5 问题的答案大部分会出自北邮官方网站，当然如果您的提问我在官网找不到，我会通过别的途径尽量给您回复。");
+            await context.PostAsync("6 当然我还是个知识储备不完全的机器人，要是回答错了，还请见谅。");
+            await context.PostAsync("7 下面请开始提问吧！");
             context.Wait(MessageReceived);
         }
-        
+
+        [LuisIntent("test查询学校")]
+        public async Task Find_School(IDialogContext context, LuisResult result)
+        {
+            await context.PostAsync("你好，我叫TryCatch，我来自北邮，有什么关于北邮的问题尽管问我好啦，我一定竭尽全力去回答！");
+            await context.PostAsync("问答小提示：");
+            await context.PostAsync("1 每个问题请在最后加上问号。");
+            await context.PostAsync("2 请尽量使用疑问句提问哦。");
+            await context.PostAsync("3 描述问题请尽量描述的详尽些，问答只支持中文，不支持别的语言哦。");
+            await context.PostAsync("4 每个问题里请加上“北邮”或者“北京邮电大学”字样，要不然我帮你查到清华去可就不好啦。");
+            await context.PostAsync("5 问题的答案大部分会出自北邮官方网站，当然如果您的提问我在官网找不到，我会通过别的途径尽量给您回复。");
+            await context.PostAsync("6 当然我还是个知识储备不完全的机器人，要是回答错了，还请见谅。");
+            await context.PostAsync("7 下面请开始提问吧！");
+            context.Wait(MessageReceived);
+        }
+
+        [LuisIntent("test说再见")]
+        public async Task Say_Bye(IDialogContext context, LuisResult result)
+        {
+            await context.PostAsync("和你对话很愉快，我们下次再会！Bye Bye！");            
+            context.Wait(MessageReceived);
+        }
+
         [LuisIntent("查前身")]
         public async Task Find_Prebuild(IDialogContext context, LuisResult result)
         {
@@ -1111,6 +1701,8 @@ namespace TryCatch.Dialogs
             {
                 entity = entity + example.Entity;
             }
+
+            await context.PostAsync("TryCatch正在努力查找中......");
 
             switch (entity)
             {
@@ -1165,6 +1757,8 @@ namespace TryCatch.Dialogs
                 entity = entity + example.Entity;
             }
 
+            await context.PostAsync("TryCatch正在努力查找中......");
+
             switch (entity)
             {
                 case "中共北京邮电大学网络技术研究院党委":
@@ -1201,6 +1795,8 @@ namespace TryCatch.Dialogs
             {
                 entity = entity + example.Entity;
             }
+
+            await context.PostAsync("TryCatch正在努力查找中......");
 
             switch (entity)
             {
@@ -1246,6 +1842,8 @@ namespace TryCatch.Dialogs
             {
                 entity = entity + example.Entity;
             }
+
+            await context.PostAsync("TryCatch正在努力查找中......");
 
             switch (entity)
             {
@@ -1297,6 +1895,8 @@ namespace TryCatch.Dialogs
                 entity = entity + example.Entity;
             }
 
+            await context.PostAsync("TryCatch正在努力查找中......");
+
             switch (entity)
             {
                 case "计 算 机 科 学 与 技 术":
@@ -1330,6 +1930,8 @@ namespace TryCatch.Dialogs
             {
                 entity = entity + example.Entity;
             }
+
+            await context.PostAsync("TryCatch正在努力查找中......");
 
             switch (entity)
             {
@@ -1367,6 +1969,8 @@ namespace TryCatch.Dialogs
                 entity = entity + example.Entity;
             }
 
+            await context.PostAsync("TryCatch正在努力查找中......");
+
             switch (entity)
             {
                 case "感知技术研究院":
@@ -1403,6 +2007,8 @@ namespace TryCatch.Dialogs
                 entity = entity + example.Entity;
             }
 
+            await context.PostAsync("TryCatch正在努力查找中......");
+
             switch (entity)
             {
                 case "信息与通信工程学院停招":
@@ -1433,6 +2039,8 @@ namespace TryCatch.Dialogs
             {
                 entity = entity + example.Entity;
             }
+
+            await context.PostAsync("TryCatch正在努力查找中......");
 
             switch (entity)
             {
@@ -1465,6 +2073,8 @@ namespace TryCatch.Dialogs
                 entity = entity + example.Entity;
             }
 
+            await context.PostAsync("TryCatch正在努力查找中......");
+
             switch (entity)
             {
                 case "自动化学院学生":
@@ -1496,6 +2106,8 @@ namespace TryCatch.Dialogs
                 entity = entity + example.Entity;
             }
 
+            await context.PostAsync("TryCatch正在努力查找中......");
+
             switch (entity)
             {
                 case "网络技术研究院全院科研人员平均":
@@ -1523,6 +2135,8 @@ namespace TryCatch.Dialogs
             IList<EntityRecommendation> entityl = result.Entities;
 
             var message = context.MakeMessage();
+
+            await context.PostAsync("TryCatch正在努力查找中......");
 
             foreach (EntityRecommendation example in entityl)
             {
@@ -1575,6 +2189,8 @@ namespace TryCatch.Dialogs
         public async Task TestCheckSchool(IDialogContext context, LuisResult result)
         {
             IList<EntityRecommendation> entityl = result.Entities;
+
+            await context.PostAsync("TryCatch正在努力查找中......");
 
             foreach (EntityRecommendation example in entityl)
             {
@@ -1630,6 +2246,8 @@ namespace TryCatch.Dialogs
         {
             string question = result.Query;
 
+            await context.PostAsync("TryCatch正在努力查找中......");
+
             if (question.Equals("方滨兴在北邮是什么职位、")){ 
                 await context.PostAsync("网络空间安全院长");
             }
@@ -1658,6 +2276,8 @@ namespace TryCatch.Dialogs
         public async Task CheckTime(IDialogContext context, LuisResult result)
         {
             IList<EntityRecommendation> entityl = result.Entities;
+
+            await context.PostAsync("TryCatch正在努力查找中......");
 
             foreach (EntityRecommendation example in entityl)
             {
@@ -1734,6 +2354,8 @@ namespace TryCatch.Dialogs
         public async Task CheckAchievements(IDialogContext context, LuisResult result)
         {
             IList<EntityRecommendation> entityl = result.Entities;
+
+            await context.PostAsync("TryCatch正在努力查找中......");
 
             foreach (EntityRecommendation example in entityl)
             {
@@ -1816,6 +2438,8 @@ namespace TryCatch.Dialogs
                 entity = entity + example.Entity;
             }
 
+            await context.PostAsync("TryCatch正在努力查找中......");
+
             switch (entity)
             {
                 case "北邮校徽":
@@ -1839,6 +2463,9 @@ namespace TryCatch.Dialogs
         public async Task Find_Expense(IDialogContext context, LuisResult result)
         {
             IList<EntityRecommendation> entity1 = result.Entities;
+
+            await context.PostAsync("TryCatch正在努力查找中......");
+
             foreach (EntityRecommendation example in entity1)
             {
                 string entity = example.Entity;
@@ -1882,6 +2509,8 @@ namespace TryCatch.Dialogs
                 entity = entity + example.Entity;
             }
 
+            await context.PostAsync("TryCatch正在努力查找中......");
+
             switch (entity)
             {
                 case "自动化学院本科生毕业设计":
@@ -1910,6 +2539,8 @@ namespace TryCatch.Dialogs
             {
                 entity = entity + example.Entity;
             }
+
+            await context.PostAsync("TryCatch正在努力查找中......");
 
             switch (entity)
             {
@@ -1940,6 +2571,8 @@ namespace TryCatch.Dialogs
                 entity = entity + example.Entity;
             }
 
+            await context.PostAsync("TryCatch正在努力查找中......");
+
             switch (entity)
             {
                 case "信息与通信工程学院实验中心总":
@@ -1966,7 +2599,9 @@ namespace TryCatch.Dialogs
 
             string solution = await NotFind.Sub_Process(question);
 
-            if(solution == null)
+            await context.PostAsync("TryCatch正在努力查找中......");
+
+            if (solution == null)
             {
                 await context.PostAsync("很抱歉 没能帮您找到答案");
             }
